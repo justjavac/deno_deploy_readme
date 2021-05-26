@@ -6,7 +6,7 @@
 
 1. Click on the button below and you'll be navigated to Deno Deploy.
 
-    [![](./assets/deno-deploy-button.svg)](https://dash.deno.com/new?url=https://raw.githubusercontent.com/justjavac/deno_deploy_readme/mian/mod.ts&env=GITHUB_REPO,GITHUB_BRANCH)
+    [![](./assets/deno-deploy-button.svg)](https://dash.deno.com/new?url=https://raw.githubusercontent.com/justjavac/deno_deploy_readme/main/mod.ts&env=GITHUB_REPO,GITHUB_BRANCH)
 
 1. Input `GITHUB_REPO` and `GITHUB_BRANCH` env variable field. If `GITHUB_BRANCH` is not set, the default branch is `main`.
 
