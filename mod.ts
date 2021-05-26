@@ -6,11 +6,11 @@ import externalLinks from "https://esm.sh/remark-external-links";
 import stringify from "https://esm.sh/rehype-stringify";
 
 function getUrl(fileName: string) {
-  if (Deno.env.get("LOCAL")) {
+  if (!Deno.env.get("GITHUB_REPO")) {
     return new URL(fileName, import.meta.url);
   }
 
-  const repo = Deno.env.get("GITHUB_REPO") ?? "justjavac/deno_deploy_readme";
+  const repo = Deno.env.get("GITHUB_REPO");
   const branch = Deno.env.get("GITHUB_BRANCH") ?? "main";
 
   return `https://raw.githubusercontent.com/${repo}/${branch}/${fileName}`;

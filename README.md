@@ -21,7 +21,7 @@
 Run on local:
 
 ```bash
-$ LOCAL=true deployctl run --watch --no-check mod.ts
+$ deployctl run --watch --no-check mod.ts
 ```
 
 ## License
