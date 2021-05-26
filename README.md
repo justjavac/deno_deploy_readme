@@ -1,6 +1,6 @@
 # Deno Deploy Readme
 
-> Handle GitHub Readme for Deno Deploy.
+> Handle GitHub Readme on Deno Deploy.
 
 ## Deploy the code
 
