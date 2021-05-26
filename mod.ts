@@ -7,7 +7,7 @@ import stringify from "https://esm.sh/rehype-stringify";
 
 function getUrl(fileName: string) {
   if (Deno.env.get("LOCAL")) {
-    return new URL(fileName, import.meta.url)
+    return new URL(fileName, import.meta.url);
   }
 
   const repo = Deno.env.get("GITHUB_REPO") ?? "justjavac/deno_deploy_readme";
@@ -18,6 +18,14 @@ function getUrl(fileName: string) {
 
 async function handleRequest(request: Request) {
   const { pathname } = new URL(request.url);
+
+  if (pathname.startsWith("/assets/style.css")) {
+    const style = new URL("assets/style.css", import.meta.url);
+    const response = await fetch(style);
+    const headers = new Headers(response.headers);
+    headers.set("content-type", "text/css; charset=utf-8");
+    return new Response(response.body, { ...response, headers });
+  }
 
   if (pathname.startsWith("/assets")) {
     const favicon = new URL(pathname.substr(1), import.meta.url);
@@ -60,7 +68,7 @@ async function handleRequest(request: Request) {
       headers: {
         "content-type": "text/html; charset=utf-8",
       },
-    }
+    },
   );
 }
 
